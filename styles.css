@@ -1,9 +1,31 @@
 body{
     background: #352f5b;
 }
+
 .container{
     max-width: 400px;
+    animation: slideMe .5s ease-in;
 }
+li:last-child {
+    animation: slideMe .5s ease-in;
+}
+/* little animation properties */
+@keyframes slideMe {
+    0% {
+        transform: skewX(50deg) translateX(-500px);
+        opacity: 0;
+    }
+    60%{
+        transform: translateX(0px);
+    }
+    62%{
+        transform: skew(-10deg);
+    }
+    100% {
+        transform: skew(0deg);
+    }
+}
+
 input[type=text]
 input[type=text]:focus{
     color:#fff;
@@ -11,19 +33,24 @@ input[type=text]:focus{
     background: rgba(0,0,0,0.2);
     max-width: 400px;
 }
+
 .todos li{
     background: #423a6f;
 }
+
 .delete {
     cursor:pointer;
 }
+
 i{
     color: #fff;
 }
+
 span {
     color: #fff;
 }
 
+/* !!! class added in filterTodos function */
 .filtered {
     display: none !important;
 }

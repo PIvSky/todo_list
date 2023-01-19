@@ -2,6 +2,7 @@ const addForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
 const search = document.querySelector('.search input');
 
+// add html template with value from form
 const generateTemplate = todo => {
 
     const html = `
@@ -13,6 +14,7 @@ const generateTemplate = todo => {
     list.innerHTML += html;
 }; 
 
+// add todos - function linked to this one above
 addForm.addEventListener('submit', e => {
 
     e.preventDefault();
@@ -25,14 +27,16 @@ addForm.addEventListener('submit', e => {
     
 });
 
-// delete todos
+// delete todos - fired when sb clicked trash icon
 list.addEventListener('click', e => {
 
     if(e.target.classList.contains('delete')){
         e.target.parentElement.remove();
     };
+
 });
 
+// filtering function of todo list
 const filterTodos = (term) => {
     Array.from(list.children)
         .filter((todo) => !todo.textContent.includes(term))
@@ -42,7 +46,7 @@ const filterTodos = (term) => {
         .forEach((todo) => todo.classList.remove('filtered'));
 };
 
-// keyup event
+// keyup event - fired whenever sth is written in search
 search.addEventListener('keyup', () => {
     const term = search.value.trim();
     filterTodos(term);
